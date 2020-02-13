@@ -5,6 +5,9 @@ public class Menu {
 
         //need firstname, lastname, street, city, state, zip, telephone, email
 
+    /**
+     *
+     */
         public static void prompt_FirstName()
         {
             System.out.println("First Name: ");
