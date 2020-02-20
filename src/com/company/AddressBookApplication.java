@@ -1,5 +1,7 @@
 package com.company;
 import java.io.*;
+import java.util.ArrayList;
+import java.util.ArrayList.*;
 
 public class AddressBookApplication {
 
@@ -25,64 +27,6 @@ public class AddressBookApplication {
         ab.list();
     }
 
-    /**
-     *
-     * @param fileName
-     * @throws Exception
-     */
-    static void init(String fileName) throws Exception
-    {
-        File file = new File(fileName);
-        BufferedReader br = new BufferedReader(new FileReader(file));
-
-        int index = 0;
-        String str;
-        AddressEntry newEntry = new AddressEntry();
-        while((str = br.readLine()) != null)
-        {
-            System.out.println(str);
-            if(index != 0)
-            {
-                if(index == 1)
-                {
-                    newEntry.setFirstName(str.substring(1,str.indexOf(" ")));
-                    newEntry.setLastName(str.substring(str.indexOf(' '),str.length()-1));
-                }
-                else if(index == 2)
-                {
-                    newEntry.setStreet(str.substring(1));
-                }
-                else if(index == 3)
-                {
-                    newEntry.setCity(str.substring(1,str.indexOf(',')));
-                    newEntry.setState(str.substring(str.indexOf(' '),str.length()-6));
-                    newEntry.setZip(Integer.parseInt(str.substring(str.length()-6)));
-                }
-                else if(index == 4)
-                {
-                    newEntry.setEmail(str.substring(1));
-                }
-                else if(index == 5)
-                {
-                    newEntry.setPhone(str.substring(1));
-                    index = 0;
-                    newBook.add(newEntry);
-                    newEntry = null;
-                }
-            }
-        }
-        newBook.list();
-    }
-
-    /**
-     *
-     * @throws Exception
-     */
-   static void makeFile( ) throws Exception
-    {
-        File newFile = new File("C:\\Users\\Jordan\\Desktop\\text.txt");
-        newFile.createNewFile();
-    }
 
     /**
      *
@@ -94,39 +38,25 @@ public class AddressBookApplication {
         //simply invokes static methods of the com.company.Menu class
 
         //***YOU NOW FINISH CODE TO CALL ALL the rest of the static methods of the com.company.Menu class
-
+        int done = 1;
         AddressBook ab = new AddressBook();
+        do {
 
-       Menu.prompt_FirstName();
-
-        Menu.prompt_LastName();
-
-        Menu.prompt_Street();
-
-        Menu.prompt_City();
-
-        Menu.prompt_State();
-
-        Menu.prompt_Zip();
-
-        Menu.prompt_Telephone();
-
-        Menu.prompt_Email();
-
-        String fileName = "C:\\Users\\Jordan\\Desktop\\text.txt";
-        try {
-            init(fileName);
-        } catch (Exception e) {
-            try
-            {
-                makeFile();
+            try {
+                Menu.menu(ab);
+            } catch (Exception e) {
+                System.out.println("Bad Input. Let's try again.\n");
             }
-            catch(Exception e1)
-            {
-                e.printStackTrace();
-            }
-        }
+        }while(done ==0);
 
+        String fileName = "text.txt";
+       try {
+           newBook.readFromFile(fileName);
+       }
+       catch (Exception e)
+       {
+           System.out.println("Can't find File!!");
+       }
         initAddressBookExercise(ab);
 
 

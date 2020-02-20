@@ -29,9 +29,6 @@ public class AddressBook {
     // the contained in AddressBook and print outs the information to the console window calling toString() methods
     // on each of its com.company.AddressEntry objects.
 
-    /**
-     *
-     */
     void list()
     {
         int i = 1;
@@ -47,7 +44,7 @@ public class AddressBook {
      *
      * @param lastName
      */
-    void remove(String lastName)
+    void remove(String lastName) throws Exception
     {
         if(lastName == "")
             return;
@@ -68,19 +65,15 @@ public class AddressBook {
             }
             int x = 0;
             System.out.println();
-            //System.in.read();
-
+            byte a[] = new byte[10];
+            System.in.read(a);
+            String tempStr = new String();
+            tempStr = a.toString();
+            AddressEntryList.remove(Integer.parseInt(tempStr));
         }
+
     }
 
-    /**
-     *
-     * @param fileName
-     */
-    void removeFromFile(String fileName)
-    {
-        boolean x; x = false;
-    }
 
     /**
      *
@@ -99,4 +92,28 @@ public class AddressBook {
         }
         return retArr;
     }
+
+     void readFromFile(String fileName) throws Exception
+    {
+        File file = new File(fileName);
+        BufferedReader br = new BufferedReader(new FileReader(file));
+
+        int index = 0;
+        String str;
+        while((str = br.readLine()) != null)
+        {
+            AddressEntry newEntry = new AddressEntry();
+            newEntry.setFirstName(str.substring(0,str.indexOf("/")));
+            newEntry.setLastName(str.substring(str.indexOf('/')+1,str.indexOf("//")));
+            newEntry.setStreet(str.substring(str.indexOf("//")+2,str.indexOf("///")));
+            newEntry.setCity(str.substring(str.indexOf("///")+3,str.indexOf("////")));
+            newEntry.setState(str.substring(str.indexOf("////")+4,str.indexOf("/////")));
+            newEntry.setZip(Integer.parseInt(str.substring(str.indexOf("/////")+5,str.indexOf("//////"))));
+            newEntry.setEmail(str.substring(str.indexOf("//////")+6,str.indexOf("///////")));
+            newEntry.setPhone(str.substring(str.indexOf("///////")+7));
+            AddressEntryList.add(newEntry);
+        }
+        list();
+    }
+
 }
