@@ -29,11 +29,12 @@ public class AddressBookApplication {
 
 
     /**
-     *
-     * @param args
+     * @author Jordan L. White
+     * @param args default parameter
      */
     public static void main(String args[])
     {
+
 
         //simply invokes static methods of the com.company.Menu class
 

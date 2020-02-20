@@ -44,7 +44,7 @@ public class AddressBook {
 
     /**
      *
-     * @param lastName
+     * @param lastName last name of entry to be deleted
      */
     void remove(String lastName) throws Exception
     {
@@ -53,11 +53,7 @@ public class AddressBook {
         else
         {
             ArrayList<AddressEntry> toRemove = find(lastName);
-            if(toRemove.size() == 1)
-            {
-                AddressEntryList.remove(0);
-                toRemove.remove(0);
-            }
+
             int i = 1;
             for(AddressEntry index : toRemove)
             {
@@ -66,28 +62,33 @@ public class AddressBook {
                 i++;
             }
             int x = 0;
-            System.out.println();
-            byte a[] = new byte[10];
-            System.in.read(a);
-            String tempStr = new String();
-            tempStr = a.toString();
-            AddressEntryList.remove(Integer.parseInt(tempStr));
+            System.out.println("\nWhich would you like to delete?\n");
+            Scanner in = new Scanner(System.in);
+            int temp = in.nextInt();
+            AddressEntry tempEnt = toRemove.get(temp-1);
+
+            for(int j = 0; j<AddressEntryList.size(); j++)
+            {
+                if(tempEnt == AddressEntryList.get(j))
+                    AddressEntryList.remove(j);
+            }
         }
+
 
     }
 
 
     /**
      *
-     * @param startOfLastName
-     * @return
+     * @param startOfLastName part of or full last name of Entry being searched for
+     * @return returns a list of matching entries
      */
     ArrayList<AddressEntry> find(String startOfLastName)
     {
         ArrayList<AddressEntry> retArr = new ArrayList<AddressEntry>(10);
         for(int i = 0; i<AddressEntryList.size();i++)
         {
-            if(AddressEntryList.get(i).getLastName().substring(0,startOfLastName.length()) == startOfLastName)
+            if(AddressEntryList.get(i).getLastName().toLowerCase().startsWith(startOfLastName.toLowerCase()))
             {
                 retArr.add(AddressEntryList.get(i));
             }
@@ -95,6 +96,11 @@ public class AddressBook {
         return retArr;
     }
 
+    /**
+     *
+     * @param fileName name of file or file path to be read from
+     * @throws Exception if can't find file or file is incorrectly formatted
+     */
      void readFromFile(String fileName) throws Exception
     {
         File file = new File(fileName);

@@ -67,7 +67,13 @@ public class Menu {
             {
                 System.out.println("Who are you looking for?\n");
                 str = in.next();
-                ab.find(str);
+                ArrayList<AddressEntry> temp = ab.find(str);
+                if(temp.isEmpty())
+                    System.out.println("Not there.");
+                else
+                    for (AddressEntry index : temp)
+                        System.out.println(index.toString1());
+
             }
             else if(b == 5) //print book
             {
@@ -75,6 +81,7 @@ public class Menu {
             }
             else if(b == 6)//leave
             {
+                System.out.println("See you Later!\n");
                 return 1;
             }
 
