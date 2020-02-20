@@ -1,12 +1,10 @@
 package com.company;
-import java.util.ArrayList;
+import java.util.*;
 import java.io.*;
-import java.util.List;
 
 public class AddressBook {
 
     //First Build a new entry
-    AddressEntry newEntry = new AddressEntry();
     //Variables
     ArrayList <AddressEntry> AddressEntryList = new ArrayList<AddressEntry>(10);
 
@@ -17,11 +15,15 @@ public class AddressBook {
 
     /**
      *
-     * @param a
+     * @param a adds address entry to list
      */
     void add(AddressEntry a)
     {
         AddressEntryList.add(a);
+
+        Comparator<AddressEntry> comp = (AddressEntry a1, AddressEntry a2) -> a1.getLastName().compareTo(a2.getLastName());
+
+        Collections.sort(AddressEntryList,comp);
     }
 
 

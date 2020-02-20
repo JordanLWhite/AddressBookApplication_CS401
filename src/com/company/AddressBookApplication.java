@@ -43,7 +43,7 @@ public class AddressBookApplication {
         do {
 
             try {
-                Menu.menu(ab);
+                done = Menu.menu(ab);
             } catch (Exception e) {
                 System.out.println("Bad Input. Let's try again.\n");
             }

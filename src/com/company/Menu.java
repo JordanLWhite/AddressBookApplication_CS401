@@ -3,18 +3,22 @@ import java.util.*;
 
 public class Menu {
 
-
+    /**
+     *
+     * @param ab address starting address book to operate on
+     * @return an integer to signal whether to continue or not
+     * @throws Exception based on user input bad input = exception
+     */
         //need firstname, lastname, street, city, state, zip, telephone, email
-        public static void menu(AddressBook ab) throws Exception
+        public static int menu(AddressBook ab) throws Exception
         {
-            byte a[] = new byte[100];
             int b;
             Scanner in = new Scanner(System.in);
             System.out.println("What would you like to do?\n");
             System.out.println("1)Loading from file\n2)Additional\n3)Removal\n4)Find\n5)Listing\n\n6)Quit\n");
             b = in.nextInt();
-            //System.in.read(a);
-            String str = a.toString();
+
+            String str;
             if(b == 1) //get entries from file
             {
                 System.out.println("Ok. Please enter the file name.");
@@ -71,10 +75,10 @@ public class Menu {
             }
             else if(b == 6)//leave
             {
-                System.exit(0);
+                return 1;
             }
 
-
+            return 0;
         }
 
         public static void prompt_FirstName()

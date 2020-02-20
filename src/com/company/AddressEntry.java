@@ -14,22 +14,20 @@ public class AddressEntry {
 
     //Methods
 
-    /**
-     *
-     */
+
     AddressEntry()
     {}
 
     /**
      *
-     * @param f
-     * @param l
-     * @param s
-     * @param c
-     * @param st
-     * @param p
-     * @param e
-     * @param z
+     * @param f first name of entry
+     * @param l last name of entry
+     * @param s the street of entry lives on
+     * @param c the city entry lives in
+     * @param st the state that entry lives in
+     * @param p entry's phone number
+     * @param e entry's email
+     * @param z entry's zip code
      */
     AddressEntry(String f,String l, String s, String c, String st, String p, String e, int z)
     {
@@ -47,7 +45,7 @@ public class AddressEntry {
 
     /**
      *
-     * @param f
+     * @param f first name to set first name
      */
     void setFirstName(String f)
     {
@@ -56,7 +54,7 @@ public class AddressEntry {
 
     /**
      *
-     * @param l
+     * @param l last name to set last name
      */
     void setLastName(String l)
     {
@@ -65,7 +63,7 @@ public class AddressEntry {
 
     /**
      *
-     * @param s
+     * @param s street name to set street name
      */
     void setStreet(String s)
     {
@@ -74,7 +72,7 @@ public class AddressEntry {
 
     /**
      *
-     * @param c
+     * @param c city name to set city name
      */
     void setCity(String c)
     {
@@ -83,7 +81,7 @@ public class AddressEntry {
 
     /**
      *
-     * @param s
+     * @param s state name to ste state name
      */
     void setState(String s)
     {
@@ -92,7 +90,7 @@ public class AddressEntry {
 
     /**
      *
-     * @param p
+     * @param p phone number to set phone number
      */
     void setPhone(String p)
     {
@@ -101,7 +99,7 @@ public class AddressEntry {
 
     /**
      *
-     * @param e
+     * @param e email address to set email address
      */
     void setEmail(String e)
     {
@@ -110,7 +108,7 @@ public class AddressEntry {
 
     /**
      *
-     * @param z
+     * @param z zip code to set zip code
      */
     void setZip(int z)
     {
@@ -119,7 +117,7 @@ public class AddressEntry {
 
     /**
      *
-     * @return
+     * @return first name of entry
      */
     String getFirstName()
     {
@@ -128,7 +126,7 @@ public class AddressEntry {
 
     /**
      *
-     * @return
+     * @return last name of entry
      */
     String getLastName()
     {
@@ -137,7 +135,7 @@ public class AddressEntry {
 
     /**
      *
-     * @return
+     * @return street name of entry
      */
     String getStreet()
     {
@@ -146,7 +144,7 @@ public class AddressEntry {
 
     /**
      *
-     * @return
+     * @return city name of user
      */
     String getCity()
     {
@@ -155,7 +153,7 @@ public class AddressEntry {
 
     /**
      *
-     * @return
+     * @return state name of entry
      */
     String getState()
     {
@@ -164,7 +162,7 @@ public class AddressEntry {
 
     /**
      *
-     * @return
+     * @return phine number of entry
      */
     String getPhone()
     {
@@ -173,7 +171,7 @@ public class AddressEntry {
 
     /**
      *
-     * @return
+     * @return email address of entry
      */
     String getEmail()
     {
@@ -182,7 +180,7 @@ public class AddressEntry {
 
     /**
      *
-     * @return
+     * @return zip code of entry
      */
     Integer getZip()
     {
@@ -191,7 +189,7 @@ public class AddressEntry {
 
     /**
      *
-     * @return
+     * @return formatted string for printing
      */
     String toString1()
     {
@@ -201,5 +199,7 @@ public class AddressEntry {
         retString += "\n\t" + phone;
         return retString;
     }
+
+
 
 }
