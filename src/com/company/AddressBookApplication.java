@@ -38,7 +38,7 @@ public class AddressBookApplication {
         //simply invokes static methods of the com.company.Menu class
 
         //***YOU NOW FINISH CODE TO CALL ALL the rest of the static methods of the com.company.Menu class
-        int done = 1;
+        int done = 0;
         AddressBook ab = new AddressBook();
         do {
 
@@ -48,7 +48,7 @@ public class AddressBookApplication {
                 System.out.println("Bad Input. Let's try again.\n");
             }
         }while(done ==0);
-
+/*
         String fileName = "text.txt";
        try {
            newBook.readFromFile(fileName);
@@ -59,6 +59,8 @@ public class AddressBookApplication {
        }
         initAddressBookExercise(ab);
 
-
+*/
     }
+
+
 }
