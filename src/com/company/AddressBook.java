@@ -48,7 +48,7 @@ public class AddressBook {
      */
     void remove(String lastName) throws Exception
     {
-        if(lastName == "")
+        if(lastName.isEmpty())
             return;
         else
         {
@@ -61,7 +61,6 @@ public class AddressBook {
                 System.out.print(index.toString1());
                 i++;
             }
-            int x = 0;
             System.out.println("\nWhich would you like to delete?\n");
             Scanner in = new Scanner(System.in);
             int temp = in.nextInt();
@@ -106,7 +105,6 @@ public class AddressBook {
         File file = new File(fileName);
         BufferedReader br = new BufferedReader(new FileReader(file));
 
-        int index = 0;
         String str;
         while((str = br.readLine()) != null)
         {

@@ -1,12 +1,8 @@
 package com.company;
-import java.io.*;
-import java.util.ArrayList;
-import java.util.ArrayList.*;
+
 
 public class AddressBookApplication {
 
-    //a quick global variable
-    static AddressBook newBook = new AddressBook();
 
 //NEXT, you are to create a method in your AddressBookApplication called void initAddressBookExercise(ab)
 // that creates 2 instances of com.company.AddressEntry and places them in ab (an com.company.AddressBook) collection called AddressEntryList.
@@ -14,9 +10,9 @@ public class AddressBookApplication {
 
     /**
      *
-     * @param ab
+     * @param ab  exercise 1
      */
-    static void initAddressBookExercise(com.company.AddressBook ab)
+    static void initAddressBookExercise(AddressBook ab)
     {
         //declaration of Address entry variables
         AddressEntry a = new AddressEntry("James","Parser","A Street","Hayward","California","510-555-fake","1@eastbay.edu",12345);
